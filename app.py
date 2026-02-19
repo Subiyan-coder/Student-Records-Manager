@@ -7,21 +7,21 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# --- Database Connection (Using PyMySQL) ---
+# --- Database Connection (Cloud Ready) ---
 def get_db_connection():
     try:
-        # Note: PyMySQL uses 'connect', just like the other one, but is more stable
         return pymysql.connect(
-            host="localhost",
-            user="root",
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
             password=os.getenv("DB_PASSWORD"),
-            database="student_db",
-            cursorclass=pymysql.cursors.DictCursor # This makes accessing data easier
+            database=os.getenv("DB_NAME"),
+            port=int(os.getenv("DB_PORT")), # Port must be a number!
+            cursorclass=pymysql.cursors.DictCursor
         )
     except Exception as err:
         print(f"❌ DATABASE ERROR: {err}")
         return None
-
+    
 # --- Routes ---
 @app.route('/')
 def index():
