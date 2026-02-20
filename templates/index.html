@@ -13,7 +13,7 @@
     <div class="card mb-4 shadow-sm">
         <div class="card-header bg-primary text-white">Add New Student</div>
         <div class="card-body">
-            <form action="/add" method="POST" class="row g-3">
+            <form action="/add" method="POST" class="row g-3" onsubmit="document.getElementById('submitBtn').innerHTML = '⏳ Waking up Server...'; document.getElementById('submitBtn').disabled = true;">
                 <div class="col-md-3">
                     <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                 </div>
@@ -43,7 +43,7 @@
                     <input type="number" name="end_year" class="form-control" placeholder="End Year (e.g., 2026)" required>
                 </div>
                 <div class="col-md-3 d-grid">
-                    <button type="submit" class="btn btn-success">Add Student</button>
+                    <button type="submit" id="submitBtn" class="btn btn-success">Add Student</button>
                 </div>
             </form>
         </div>
