@@ -1,6 +1,6 @@
 # 🎓 Student Records Manager
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here-05192D?style=for-the-badge&logo=render)](https://student-records-manager-50un.onrender.com/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here-05192D?style=for-the-badge&logo=render)]https://student-records-manager-50un.onrender.com/)
 
 A lightweight, web-based CRUD (Create, Read, Update, Delete) application designed to manage student data. This project demonstrates backend database integration using Python and MySQL, served through a modern web interface.
 
@@ -11,10 +11,16 @@ A lightweight, web-based CRUD (Create, Read, Update, Delete) application designe
 * **Environment Management:** `python-dotenv` for secure credential handling
 
 ## ✨ Features
-* **Create:** Add new students with their Name, Department, Year of Study, and CGPA.
-* **Read:** View a formatted table of all enrolled students.
-* **Update:** Edit existing student details and dynamically update the database.
-* **Delete:** Remove a student record from the system.
+
+* **Full CRUD Operations:** Seamlessly Create, Read, Update, and Delete student records.
+* **Comprehensive Data Tracking:** Manage detailed academic profiles, including:
+  * Full Name & Institute Name
+  * Degree & Department
+  * Current Academic Status (Pursuing / Completed) & Expected End Year
+  * Current Year of Study & CGPA
+* **Cloud Database Integration:** Securely connected to a live MySQL database hosted on Aiven.
+* **Production Deployment:** Fully hosted and accessible online via Render with a Gunicorn WSGI server.
+* **Responsive UI:** Clean, modern, and user-friendly web interface styled with Bootstrap.
 
 ## 🚀 Setup & Installation
 
