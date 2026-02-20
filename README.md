@@ -4,6 +4,8 @@
 
 A lightweight, web-based CRUD (Create, Read, Update, Delete) application designed to manage student data. This project demonstrates backend database integration using Python and MySQL, served through a modern web interface.
 
+![Student Manager Web App](images/app-screenshot.png)
+
 ## 🛠️ Tech Stack
 * **Backend:** Python, Flask
 * **Database:** MySQL (using `PyMySQL` driver)
