@@ -1,5 +1,7 @@
 # 🎓 Student Records Manager
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here-05192D?style=for-the-badge&logo=render)](https://student-records-manager-50un.onrender.com/)
+
 A lightweight, web-based CRUD (Create, Read, Update, Delete) application designed to manage student data. This project demonstrates backend database integration using Python and MySQL, served through a modern web interface.
 
 ## 🛠️ Tech Stack
