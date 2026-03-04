@@ -68,6 +68,36 @@ def add_student():
                         (name, dept, year, cgpa, institute_name, degree, status, end_year)
                     )
                 conn.commit()
+            except Exception as err:
+                # If MySQL rejects the data, this catches it and shows you WHY!
+                print(f"❌ MYSQL DATA ERROR: {err}")
+                return f"<h1>Database Rejected the Data!</h1><p>Error details: {err}</p><br><a href='/'>Go Back</a>", 400
+            finally:
+                conn.close()
+                
+        return redirect(url_for('index'))
+    
+    if request.method == 'POST':
+        name = request.form['name']
+        dept = request.form['dept']
+        year = request.form['year']
+        cgpa = request.form['cgpa']
+        institute_name = request.form['institute_name']
+        degree = request.form['degree']
+        status = request.form['status']
+        end_year = request.form['end_year']
+
+        conn = get_db_connection()
+        if conn:
+            try:
+                with conn.cursor() as cursor:
+                    cursor.execute(
+                        """INSERT INTO students 
+                           (name, department, year_of_study, cgpa, institute_name, degree, status, end_year) 
+                           VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""", 
+                        (name, dept, year, cgpa, institute_name, degree, status, end_year)
+                    )
+                conn.commit()
             finally:
                 conn.close()
                 
