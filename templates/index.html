@@ -13,38 +13,42 @@
     <div class="card mb-4 shadow-sm">
         <div class="card-header bg-primary text-white">Add New Student</div>
         <div class="card-body">
-            <form action="/add" method="POST" class="row g-3" onsubmit="document.getElementById('submitBtn').innerHTML = '⏳ Waking up Server...'; document.getElementById('submitBtn').disabled = true;">
-                <div class="col-md-3">
+            <form action="/add" method="POST" class="row g-4" onsubmit="document.getElementById('submitBtn').innerHTML = '⏳ Waking up Server...'; document.getElementById('submitBtn').disabled = true;">
+                
+                <div class="col-md-4">
                     <input type="text" name="name" class="form-control" placeholder="Full Name" required>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <input type="text" name="institute_name" class="form-control" placeholder="Institute Name" required>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" name="degree" class="form-control" placeholder="Degree (e.g., MSc IT)" required>
-                </div>
-                <div class="col-md-2">
                     <input type="text" name="dept" class="form-control" placeholder="Department" required>
                 </div>
-                <div class="col-md-2">
-                    <input type="number" name="year" class="form-control" placeholder="period of course" required>
+
+                <div class="col-md-4">
+                    <input type="text" name="degree" class="form-control" placeholder="Degree (e.g., MSc IT)" required>
                 </div>
-                <div class="col-md-2">
-                    <input type="number" name="cgpa" max="10" step="0.01" placeholder="CGPA" required>
+                <div class="col-md-4">
+                    <input type="number" name="year" class="form-control" placeholder="Course Period (Years)" required>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
+                    <input type="number" name="end_year" class="form-control" placeholder="End Year (e.g., 2026)" required>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="number" name="cgpa" max="10" step="0.01" class="form-control" placeholder="CGPA (Out of 10.0)" required>
+                </div>
+                <div class="col-md-4">
                     <select name="status" class="form-select" required>
                         <option value="" disabled selected>Select Status</option>
                         <option value="Completed">Completed</option>
                         <option value="Pursuing">Pursuing</option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <input type="number" name="end_year" class="form-control" placeholder="End Year (e.g., 2026)" required>
+                <div class="col-md-4 d-grid">
+                    <button type="submit" id="submitBtn" class="btn btn-success font-weight-bold">Add Student</button>
                 </div>
-                <div class="col-md-3 d-grid">
-                    <button type="submit" id="submitBtn" class="btn btn-success">Add Student</button>
-                </div>
+
             </form>
         </div>
     </div>
