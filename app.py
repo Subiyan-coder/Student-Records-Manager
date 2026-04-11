@@ -22,11 +22,24 @@ def get_db_connection():
         print(f"❌ DATABASE ERROR: {err}")
         return None
 
-# --- NEW: Health Check Route for Cron Job ---
+# --- UPGRADED: Health Check & Database Keep-Alive ---
 @app.route('/health')
 def health_check():
-    # Render returns this instantly to cron-job.org without hitting the Aiven database!
-    return "OK", 200
+    conn = get_db_connection()
+    if conn:
+        try:
+            with conn.cursor() as cursor:
+                # This microscopic query keeps Aiven from hibernating!
+                cursor.execute("SELECT 1")
+        except Exception as e:
+            return f"Server is awake, but Database failed: {e}", 500
+        finally:
+            # Instantly close it so we don't hit Aiven's connection limits
+            conn.close()
+        
+        return "OK - Server and Database are fully awake!", 200
+    else:
+        return "Server is awake, but Database connection completely failed.", 500
 
 # --- Routes ---
 @app.route('/')
